@@ -69,9 +69,9 @@ FUNCTION PHA256(input):
         x += cos(char)
         y += sin(char)
     
-    RETURN float_to_hex32(x) + float_to_hex32(y)
+    RETURN _float_to_hex32(x) + _float_to_hex32(y)
 
-FUNCTION float_to_hex32(value):
+FUNCTION _float_to_hex32(value):
     value = abs(value)
     
     // Normalizuoti į (1,10) intervalą

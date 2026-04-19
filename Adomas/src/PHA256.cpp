@@ -1,6 +1,6 @@
 #include "PHA256.hpp"
 
-string float_to_hex32(double inputValue)
+string _float_to_hex32(double inputValue)
 {
     // Atsikratome minuso ženklo
     inputValue = fabs(inputValue);
@@ -57,8 +57,8 @@ string PHA256(const string &inputstring)
     // Kiekvieną koordinatę konvertuoti į 32 hex simbolius
     ostringstream out;
     out << hex << uppercase << setfill('0')
-        << float_to_hex32(x)  // pirmi 32 šešioliktainiai simboliai iš x
-        << float_to_hex32(y); // kiti 32 šešioliktainiai simboliai iš y
+        << _float_to_hex32(x)  // pirmi 32 šešioliktainiai simboliai iš x
+        << _float_to_hex32(y); // kiti 32 šešioliktainiai simboliai iš y
 
     // Iš viso išvedami 64 hex simboliai
     return out.str();
@@ -94,7 +94,7 @@ namespace
     }
 }
 
-string float_to_hex32_AI(double inputValue)
+string _float_to_hex32_AI(double inputValue)
 {
     inputValue = safe_abs(inputValue);
 
@@ -191,7 +191,7 @@ string PHA256_AI(const string &inputstring)
 
     ostringstream out;
     out << hex << uppercase << setfill('0')
-        << float_to_hex32_AI(mag1)
-        << float_to_hex32_AI(mag2);
+        << _float_to_hex32_AI(mag1)
+        << _float_to_hex32_AI(mag2);
     return out.str();
 }
